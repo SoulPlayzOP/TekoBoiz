@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Login - TekoBoiz{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Admin Access</h2>
+            <p>Enter your email to continue</p>
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="error-message">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            <form method="POST" class="auth-form">
+                <input type="email" name="email" placeholder="Email Address" required>
+                <button type="submit" class="auth-btn">Continue</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
